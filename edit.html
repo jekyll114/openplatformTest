@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- 建议禁用外框浏览器自带的缩放 -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WPS weboffice本地测试</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        div {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            /* 防止双击缩放 */
+            touch-action: manipulation;
+        }
+
+        iframe {
+            flex: 1;
+        }
+    </style>
+    <script src="https://qn.cache.wpscdn.cn/js/jquery-1.9.1.min.js"></script>
+    <script src="web-office-sdk-v1.1.15.umd.js"></script>
+    <script type="text/javascript">
+        var weboffice_sdk;
+        // 支持 HTTPS
+        // 注意：如果通过postMessage来设置token，请在url参数加上_w_hastoken=1
+        window.onload = function () {
+            const onToast = ({
+                msg, // 提示信息
+                action, // 提示动作
+            }) => {        // 自身业务处理,屏蔽提示
+                let msgTable = { success: 'log', error: 'error', warn: 'warn', close: 'log' };
+                console[msgTable[action]](`webOffice onToast：${action} + ${msg}`);
+                console.log(msg);
+                console.log(action);
+            };
+            var wpsFrameInstance;
+            wpsFrameInstance = WebOfficeSDK.config({
+                mount: document.getElementById('web-office-iframe'),
+                // wpsUrl: result.data,
+                // 直接提供文档链接
+                // wpsUrl: "https://www.kdocs.cn/l/cpFZDm0ow7k4",
+                wpsUrl: "https://kdocs.cn/l/cnSgcddeufYi",
+                wordOptions: {
+                    isShowBottomStatusBar: false,
+                },
+                onToast
+            });
+            // 输出所有的事件日志
+            wpsFrameInstance.on('stage', data => { console.log(data) });
+            // 输出文档首屏打开后的时间详情
+            wpsFrameInstance.on('fileOpen', data => { console.log(data) });
+            example();
+
+            async function example() {
+                await wpsFrameInstance.ready();
+                const app = wpsFrameInstance.Application;
+                // 定制元素对象【开始 Tab】
+                const controls = await app.CommandBars('StartTab').Controls;
+                // 添加 1 个定制元素：按钮，并设置标题
+                const controlButton = await controls.Add(1);
+                controlButton.Caption = '按钮';
+                // 添加 1 个定制元素：下拉框，并设置标题
+                const controlPopup = await controls.Add(10);
+                controlPopup.Caption = '下拉框';
+            }
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div id="web-office-iframe"></div>
+</body>
+
+
+</html>

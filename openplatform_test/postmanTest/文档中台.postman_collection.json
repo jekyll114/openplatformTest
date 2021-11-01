@@ -1,0 +1,2173 @@
+{
+	"info": {
+		"_postman_id": "0a49ae9b-9787-d74f-afd5-8ba8f096cb7e",
+		"name": "文档中台",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "admin 平台功能-应用管理",
+			"item": [
+				{
+					"name": "应用创建维护",
+					"item": [
+						{
+							"name": "app-创建应用",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"app_name\": \"testapp1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-修改应用基本信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"app_name\": \"shenxl_app\"\r\n}"
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-获取应用基本信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-key 更新应用key信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"postman.clearEnvironmentVariable(\"center-platform.app-key\");\r",
+											"postman.setEnvironmentVariable(\"center-platform.app-key\", result[\"app_key\"]);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/key",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}",
+										"key"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-key 获取应用key信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"postman.clearEnvironmentVariable(\"center-platform.app-key\");\r",
+											"postman.setEnvironmentVariable(\"center-platform.app-key\", result[\"app_key\"]);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/key",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}",
+										"key"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-删除应用",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/AK20210428CNYQAI",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"AK20210428CNYQAI"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "白名单维护",
+					"item": [
+						{
+							"name": "app-ip-white-list 添加应用白名单信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"postman.clearEnvironmentVariable(\"center-platform.app-key\");\r",
+											"postman.setEnvironmentVariable(\"center-platform.app-key\", result[\"app_key\"]);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ip_white_list\": \"10.90.128.56,8.8.8.8\"\r\n}"
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/ip_white_list",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}",
+										"ip_white_list"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-ip-white-list  获取应用白名单信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"postman.clearEnvironmentVariable(\"center-platform.app-key\");\r",
+											"postman.setEnvironmentVariable(\"center-platform.app-key\", result[\"app_key\"]);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/ip_white_list",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}",
+										"ip_white_list"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "app-ip-white-list 删除应用白名单信息",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"postman.clearEnvironmentVariable(\"center-platform.app-key\");\r",
+											"postman.setEnvironmentVariable(\"center-platform.app-key\", result[\"app_key\"]);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ip_white_list\": \"8.8.8.8\"\r\n}"
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/ip_white_list",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}",
+										"ip_white_list"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "授权管理",
+					"item": [
+						{
+							"name": "在线编辑",
+							"item": [
+								{
+									"name": "func 设置应用具备编辑能力",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"is_grant\": \"true\"\r\n}"
+										},
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/function/{{func.edit}}",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"function",
+												"{{func.edit}}"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								},
+								{
+									"name": "edit 获取应用在线编辑配置",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/online_edit",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"online_edit"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": [
+										{
+											"name": "edit 获取应用在线编辑配置",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Date",
+														"value": "{{header.date}}",
+														"type": "text"
+													},
+													{
+														"key": "X-Auth",
+														"value": "{{header.x-auth}}",
+														"type": "text"
+													},
+													{
+														"key": "Content-Md5",
+														"value": "{{header.md5}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/online_edit",
+													"host": [
+														"{{center-platform.url}}"
+													],
+													"path": [
+														"admin",
+														"v1",
+														"app",
+														"{{center-platform.app-id}}",
+														"online_edit"
+													]
+												}
+											},
+											"_postman_previewlanguage": "json",
+											"header": null,
+											"cookie": [],
+											"body": "{\n    \"object\": {\n        \"app_id\": \"AK20210413ROVCMM\",\n        \"callback_url\": \"http://10.90.128.56:8086\",\n        \"file_info\": \"/v1/3rd/file/info\",\n        \"user_info\": \"/v1/3rd/user/info\",\n        \"file_save\": \"/v1/3rd/file/save\",\n        \"file_version\": \"/v1/3rd/file/version/:version\",\n        \"file_history\": \"/v1/3rd/file/history\",\n        \"file_rename\": \"/v1/3rd/file/rename\",\n        \"file_online\": \"/v1/3rd/file/online\",\n        \"file_new\": \"\",\n        \"onnotify\": \"/v1/3rd/onnotify\"\n    },\n    \"result\": 0\n}"
+										}
+									]
+								},
+								{
+									"name": "edit 修改应用在线编辑配置",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"callback_url\":\"http://callback_url\",\r\n    \"file_info\":\"http://callback_url/file_info\",\r\n    \"user_info\":\"http://callback_url/user_info\",\r\n    \"file_save\":\"http://callback_url/file_save\",\r\n    \"file_version\":\"http://callback_url/file_version\",\r\n    \"file_rename\":\"http://callback_url/file_rename\",\r\n    \"file_online\":\"http://callback_url/file_online\",\r\n    \"onnotify\":\"http://callback_url/onnotify\"\r\n}"
+										},
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/online_edit",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"online_edit"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "在线预览",
+							"item": [
+								{
+									"name": "func 设置应用具备预览能力",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"is_grant\": \"true\"\r\n}"
+										},
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/function/{{func.preview}}",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"function",
+												"{{func.preview}}"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								},
+								{
+									"name": "preview 获取应用在线预览配置",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/online_preview",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"online_preview"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								},
+								{
+									"name": "preview 修改应用在线预览配置",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"callback_url\":\"http://callback_url\",\r\n    \"file_info\":\"http://callback_url/file_info\"\r\n}"
+										},
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/online_preview",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"online_preview"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "内容处理",
+							"item": [
+								{
+									"name": "func 设置应用具备内容处理能力",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"is_grant\": \"true\"\r\n}"
+										},
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/function/{{func.format_control}}",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"function",
+												"{{func.format_control}}"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								},
+								{
+									"name": "format 获取应用内容管理配置",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/format_handle",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"format_handle"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								},
+								{
+									"name": "format 修改应用内容处理配置",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"type": "text/javascript",
+												"exec": [
+													"\r",
+													""
+												]
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Date",
+												"value": "{{header.date}}",
+												"type": "text"
+											},
+											{
+												"key": "X-Auth",
+												"value": "{{header.x-auth}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Md5",
+												"value": "{{header.md5}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"callback_url\":\"http://callback_url\",\r\n    \"result_notify\":\"http://callback_url/result_notify\"\r\n}"
+										},
+										"url": {
+											"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/format_handle",
+											"host": [
+												"{{center-platform.url}}"
+											],
+											"path": [
+												"admin",
+												"v1",
+												"app",
+												"{{center-platform.app-id}}",
+												"format_handle"
+											]
+										},
+										"description": "获取应用基本信息"
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "func 获取可授予的所有能力",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/admin/v1/app/{{center-platform.app-id}}/function/list",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"app",
+										"{{center-platform.app-id}}",
+										"function",
+										"list"
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "app-list 获取应用列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"\r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Date",
+								"value": "{{header.date}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth",
+								"value": "{{header.x-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Md5",
+								"value": "{{header.md5}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{center-platform.url}}/admin/v1/app/list?page=3&limit=10",
+							"host": [
+								"{{center-platform.url}}"
+							],
+							"path": [
+								"admin",
+								"v1",
+								"app",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						},
+						"description": "获取应用基本信息"
+					},
+					"response": []
+				},
+				{
+					"name": "func-list 获取应用所能申请的功能列表",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"\r",
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let result = JSON.parse(responseBody);\r",
+									"if(result.object_array){\r",
+									"    result.object_array.map(item => {\r",
+									"        switch(item.function_name){\r",
+									"            case \"在线预览\":{\r",
+									"                postman.clearEnvironmentVariable(\"func.preview\");\r",
+									"                postman.setEnvironmentVariable(\"func.preview\", item.function_id);\r",
+									"                break;\r",
+									"            }\r",
+									"            case \"内容处理\":{\r",
+									"                postman.clearEnvironmentVariable(\"func.format_control\");\r",
+									"                postman.setEnvironmentVariable(\"func.format_control\", item.function_id);\r",
+									"                break;\r",
+									"            }\r",
+									"            case \"在线编辑\":{\r",
+									"                postman.clearEnvironmentVariable(\"func.edit\");\r",
+									"                postman.setEnvironmentVariable(\"func.edit\", item.function_id);\r",
+									"                break;\r",
+									"            }\r",
+									"            case \"应用授权\":{\r",
+									"                postman.clearEnvironmentVariable(\"func.app\");\r",
+									"                postman.setEnvironmentVariable(\"func.app\", item.function_id);\r",
+									"                break;\r",
+									"            }\r",
+									"        }      \r",
+									"    });\r",
+									"}\r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Date",
+								"value": "{{header.date}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth",
+								"value": "{{header.x-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Md5",
+								"value": "{{header.md5}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{center-platform.url}}/admin/v1/function/list?app_id={{center-platform.app-id}}",
+							"host": [
+								"{{center-platform.url}}"
+							],
+							"path": [
+								"admin",
+								"v1",
+								"function",
+								"list"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "{{center-platform.app-id}}"
+								}
+							]
+						},
+						"description": "获取应用基本信息"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let id = pm.environment.get(\"center-platform.id\");",
+							"let key = pm.environment.get(\"center-platform.key\");",
+							"",
+							"// contentType 目前固定为: application/json",
+							"let contentType = \"application/json\";",
+							"",
+							"// 处理url path",
+							"// URL：不带域名，包含uri和query参数，如\"/api_url?app_id=aaaa",
+							"let url = '';",
+							"let path = pm.request.url.path;",
+							"let query = pm.request.url.query;",
+							"let matchpath = path.map((item) => {",
+							"    if(item.startsWith(\"{{\")){",
+							"        let env_key = item.replace(\"{{\",\"\").replace(\"}}\",\"\");",
+							"        return pm.environment.get(env_key);",
+							"    }",
+							"    return item;",
+							"})",
+							"url = `/${matchpath.join('/')}`; ",
+							"// 处理url query ",
+							"// query返回类型为object 但无法通过正常手段判空",
+							"// hook : Object.keys(query.toObject())",
+							"if(query && Object.keys(query.toObject()).length !== 0){",
+							"    let querypath = query.map((item) => {",
+							"        if(item.value.startsWith(\"{{\")){",
+							"            let env_key = item.value.replace(\"{{\",\"\").replace(\"}}\",\"\");",
+							"            return `${item.key}=${pm.environment.get(env_key)}`;",
+							"        }",
+							"        return `${item.key}=${item.value}`",
+							"    });",
+							"    url = `${url}?${querypath.join('&')}`;",
+							"}",
+							"console.log(url)",
+							"// 处理 body content md5 ( 默认 body 均为 raw json)",
+							"// HTTP Body中数据的md5 值十六进制表达方式，如果参数 不带在body，则算空字符串\"\"的md5 值",
+							"",
+							"let contentMd5 = CryptoJS.MD5(\"\").toString();",
+							"var body = pm.request.body;",
+							"",
+							"if(body.mode == 'raw'){",
+							"    body_data = body['raw'];",
+							"    contentMd5 = CryptoJS.MD5(body_data).toString();",
+							"}",
+							"",
+							"// 处理时间 ",
+							"// 格式: Wed, 23 Jan 2013 06:43:08 GMT",
+							"let date = new Date(Date.now()).toUTCString();",
+							"",
+							"// 签名",
+							"// \"WPS-3:\" + AppId + \":\" + sha1(AppKey + Content-Md5 + URL + Content-Type + Date)",
+							"",
+							"let authorizationSha1 = CryptoJS.SHA1(key + contentMd5 + url + contentType + date);",
+							"let auth = `WPS-3:${id}:${authorizationSha1}`;",
+							"pm.environment.set(\"header.md5\", contentMd5);",
+							"pm.environment.set(\"header.date\", date);",
+							"pm.environment.set(\"header.x-auth\", auth);",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "auth 应用功能-能力调用",
+			"item": [
+				{
+					"name": "预览能力",
+					"item": [
+						{
+							"name": "preview 获取预览地址",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"if(result.token){\r",
+											"    postman.clearEnvironmentVariable(\"app.token\");\r",
+											"    postman.setEnvironmentVariable(\"app.token\", result.token.app_token);\r",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/auth/v1/app/inscope/token?app_id={{center-platform.app-id}}&scope=file_preview,file_edit,file_format_control",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"auth",
+										"v1",
+										"app",
+										"inscope",
+										"token"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "{{center-platform.app-id}}"
+										},
+										{
+											"key": "scope",
+											"value": "file_preview,file_edit,file_format_control"
+										}
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "编辑能力",
+					"item": [
+						{
+							"name": "preview 获取预览地址",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"if(result.token){\r",
+											"    postman.clearEnvironmentVariable(\"app.token\");\r",
+											"    postman.setEnvironmentVariable(\"app.token\", result.token.app_token);\r",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{center-platform.url}}/auth/v1/app/inscope/token?app_id={{center-platform.app-id}}&scope=file_preview,file_edit,file_format_control",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"auth",
+										"v1",
+										"app",
+										"inscope",
+										"token"
+									],
+									"query": [
+										{
+											"key": "app_id",
+											"value": "{{center-platform.app-id}}"
+										},
+										{
+											"key": "scope",
+											"value": "file_preview,file_edit,file_format_control"
+										}
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "格式处理",
+					"item": [
+						{
+							"name": "format 内容操作",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"if(result.token){\r",
+											"    postman.clearEnvironmentVariable(\"app.token\");\r",
+											"    postman.setEnvironmentVariable(\"app.token\", result.token.app_token);\r",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"task_id\":\"testid-1234\",\r\n    \"doc_url\":\"http://www.csrc.gov.cn/pub/shenzhen/xxfw/tzzsyd/ssgs/ssxxpl/ssplxx/201411/W020141111338800467479.doc\",\r\n    \"doc_filename\":\"中国证券监督管理委员会公告.doc\",\r\n    \"steps\":[{\r\n        \"operate\":\"OFFICE_WATERMARK\",\r\n        \"args\":{\r\n            \"text_watermark\":{\r\n                \"content\":\"水印\",\r\n                \"size\":25,\r\n                \"color\":\"#CC00FF\",\r\n                \"transparent\":0.4,\r\n                \"tilt\":true,\r\n                \"position\":\"TOP_CENTER\",\r\n                \"tiled\":true\r\n            }\r\n        }\r\n    }]\r\n}"
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/cps/v1/office/operate?app_token={{app.token}}",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"cps",
+										"v1",
+										"office",
+										"operate"
+									],
+									"query": [
+										{
+											"key": "app_token",
+											"value": "{{app.token}}"
+										}
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						},
+						{
+							"name": "format 文档转换",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var result = JSON.parse(responseBody);\r",
+											"if(result.token){\r",
+											"    postman.clearEnvironmentVariable(\"app.token\");\r",
+											"    postman.setEnvironmentVariable(\"app.token\", result.token.app_token);\r",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Date",
+										"value": "{{header.date}}",
+										"type": "text"
+									},
+									{
+										"key": "X-Auth",
+										"value": "{{header.x-auth}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Md5",
+										"value": "{{header.md5}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"task_id\":\"convert-1\",\r\n    \"doc_url\":\"http://www.csrc.gov.cn/pub/shenzhen/xxfw/tzzsyd/ssgs/ssxxpl/ssplxx/201411/W020141111338800467479.doc\",\r\n    \"doc_filename\":\"中国证券监督管理委员会公告.doc\",\r\n    \"target_file_format\":\"pdf\"\r\n}"
+								},
+								"url": {
+									"raw": "{{center-platform.url}}/cps/v1/office/convert?app_token={{app.token}}",
+									"host": [
+										"{{center-platform.url}}"
+									],
+									"path": [
+										"cps",
+										"v1",
+										"office",
+										"convert"
+									],
+									"query": [
+										{
+											"key": "app_token",
+											"value": "{{app.token}}"
+										}
+									]
+								},
+								"description": "获取应用基本信息"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "token 获取应用token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var result = JSON.parse(responseBody);\r",
+									"if(result.token){\r",
+									"    postman.clearEnvironmentVariable(\"app.token\");\r",
+									"    postman.setEnvironmentVariable(\"app.token\", result.token.app_token);\r",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Date",
+								"value": "{{header.date}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth",
+								"value": "{{header.x-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Md5",
+								"value": "{{header.md5}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{center-platform.url}}/auth/v1/app/inscope/token?app_id={{center-platform.app-id}}&scope=file_preview,file_edit,file_format_control",
+							"host": [
+								"{{center-platform.url}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"app",
+								"inscope",
+								"token"
+							],
+							"query": [
+								{
+									"key": "app_id",
+									"value": "{{center-platform.app-id}}"
+								},
+								{
+									"key": "scope",
+									"value": "file_preview,file_edit,file_format_control"
+								}
+							]
+						},
+						"description": "获取应用基本信息"
+					},
+					"response": []
+				},
+				{
+					"name": "download 文件下载",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Date",
+								"value": "{{header.date}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth",
+								"value": "{{header.x-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Md5",
+								"value": "{{header.md5}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{center-platform.url}}/cps/v1/download/file/{{task.download_id}}?app_token={{app.token}}",
+							"host": [
+								"{{center-platform.url}}"
+							],
+							"path": [
+								"cps",
+								"v1",
+								"download",
+								"file",
+								"{{task.download_id}}"
+							],
+							"query": [
+								{
+									"key": "app_token",
+									"value": "{{app.token}}"
+								}
+							]
+						},
+						"description": "获取应用基本信息"
+					},
+					"response": []
+				},
+				{
+					"name": "task 任务查询",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var result = JSON.parse(responseBody);\r",
+									"if(result.status = 'SUCCESS'){\r",
+									"    postman.clearEnvironmentVariable(\"task.download_id\");\r",
+									"    postman.setEnvironmentVariable(\"task.download_id\", result.download_id);\r",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Date",
+								"value": "{{header.date}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth",
+								"value": "{{header.x-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Md5",
+								"value": "{{header.md5}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_id\": \"convert-1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{center-platform.url}}/cps/v1/task/query?app_token={{app.token}}",
+							"host": [
+								"{{center-platform.url}}"
+							],
+							"path": [
+								"cps",
+								"v1",
+								"task",
+								"query"
+							],
+							"query": [
+								{
+									"key": "app_token",
+									"value": "{{app.token}}"
+								}
+							]
+						},
+						"description": "获取应用基本信息"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let id = pm.environment.get(\"center-platform.app-id\");",
+							"let key = pm.environment.get(\"center-platform.app-key\");",
+							"",
+							"// contentType 目前固定为: application/json",
+							"let contentType = \"application/json\";",
+							"",
+							"// 处理url path",
+							"// URL：不带域名，包含uri和query参数，如\"/api_url?app_id=aaaa",
+							"let url = '';",
+							"let path = pm.request.url.path;",
+							"let query = pm.request.url.query;",
+							"let matchpath = path.map((item) => {",
+							"    if(item.startsWith(\"{{\")){",
+							"        let env_key = item.replace(\"{{\",\"\").replace(\"}}\",\"\");",
+							"        return pm.environment.get(env_key);",
+							"    }",
+							"    return item;",
+							"})",
+							"url = `/${matchpath.join('/')}`; ",
+							"// 处理url query ",
+							"// query返回类型为object 但无法通过正常手段判空",
+							"// hook : Object.keys(query.toObject())",
+							"if(query && Object.keys(query.toObject()).length !== 0){",
+							"    let querypath = query.map((item) => {",
+							"        if(item.value.startsWith(\"{{\")){",
+							"            let env_key = item.value.replace(\"{{\",\"\").replace(\"}}\",\"\");",
+							"            return `${item.key}=${pm.environment.get(env_key)}`;",
+							"        }",
+							"        return `${item.key}=${item.value}`",
+							"    });",
+							"    url = `${url}?${querypath.join('&')}`;",
+							"}",
+							"console.log(url)",
+							"// 处理 body content md5 ( 默认 body 均为 raw json)",
+							"// HTTP Body中数据的md5 值十六进制表达方式，如果参数 不带在body，则算空字符串\"\"的md5 值",
+							"",
+							"let contentMd5 = CryptoJS.MD5(\"\").toString();",
+							"var body = pm.request.body;",
+							"",
+							"if(body.mode == 'raw'){",
+							"    body_data = body['raw'];",
+							"    contentMd5 = CryptoJS.MD5(body_data).toString();",
+							"}",
+							"",
+							"// 处理时间 ",
+							"// 格式: Wed, 23 Jan 2013 06:43:08 GMT",
+							"let date = new Date(Date.now()).toUTCString();",
+							"",
+							"// 签名",
+							"// \"WPS-3:\" + AppId + \":\" + sha1(AppKey + Content-Md5 + URL + Content-Type + Date)",
+							"",
+							"let authorizationSha1 = CryptoJS.SHA1(key + contentMd5 + url + contentType + date);",
+							"let auth = `WPS-3:${id}:${authorizationSha1}`;",
+							"pm.environment.set(\"header.md5\", contentMd5);",
+							"pm.environment.set(\"header.date\", date);",
+							"pm.environment.set(\"header.x-auth\", auth);",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "licence 获取授权信息",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let id = pm.environment.get(\"center-platform.id\");\r",
+							"let key = pm.environment.get(\"center-platform.key\");\r",
+							"\r",
+							"// contentType 目前固定为: application/json\r",
+							"let contentType = \"application/json\";\r",
+							"\r",
+							"// 处理url path\r",
+							"// URL：不带域名，包含uri和query参数，如\"/api_url?app_id=aaaa\r",
+							"let url = '';\r",
+							"let path = pm.request.url.path;\r",
+							"let query = pm.request.url.query;\r",
+							"let matchpath = path.map((item) => {\r",
+							"    if(item.startsWith(\"{{\")){\r",
+							"        let env_key = item.replace(\"{{\",\"\").replace(\"}}\",\"\");\r",
+							"        return pm.environment.get(env_key);\r",
+							"    }\r",
+							"    return item;\r",
+							"})\r",
+							"url = `/${matchpath.join('/')}`; \r",
+							"// 处理url query \r",
+							"// query返回类型为object 但无法通过正常手段判空\r",
+							"// hook : Object.keys(query.toObject())\r",
+							"if(query && Object.keys(query.toObject()).length !== 0){\r",
+							"    let querypath = query.map((item) => {\r",
+							"        if(item.value.startsWith(\"{{\")){\r",
+							"            let env_key = item.value.replace(\"{{\",\"\").replace(\"}}\",\"\");\r",
+							"            return `${item.key}=${pm.environment.get(env_key)}`;\r",
+							"        }\r",
+							"        return `${item.key}=${item.value}`\r",
+							"    });\r",
+							"    url = `${url}?${querypath.join('&')}`;\r",
+							"}\r",
+							"console.log(url)\r",
+							"// 处理 body content md5 ( 默认 body 均为 raw json)\r",
+							"// HTTP Body中数据的md5 值十六进制表达方式，如果参数 不带在body，则算空字符串\"\"的md5 值\r",
+							"\r",
+							"let contentMd5 = CryptoJS.MD5(\"\").toString();\r",
+							"var body = pm.request.body;\r",
+							"\r",
+							"if(body.mode == 'raw'){\r",
+							"    body_data = body['raw'];\r",
+							"    contentMd5 = CryptoJS.MD5(body_data).toString();\r",
+							"}\r",
+							"\r",
+							"// 处理时间 \r",
+							"// 格式: Wed, 23 Jan 2013 06:43:08 GMT\r",
+							"let date = new Date(Date.now()).toUTCString();\r",
+							"\r",
+							"// 签名\r",
+							"// \"WPS-3:\" + AppId + \":\" + sha1(AppKey + Content-Md5 + URL + Content-Type + Date)\r",
+							"\r",
+							"let authorizationSha1 = CryptoJS.SHA1(key + contentMd5 + url + contentType + date);\r",
+							"let auth = `WPS-3:${id}:${authorizationSha1}`;\r",
+							"pm.environment.set(\"header.md5\", contentMd5);\r",
+							"pm.environment.set(\"header.date\", date);\r",
+							"pm.environment.set(\"header.x-auth\", auth);\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Date",
+						"value": "{{header.date}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth",
+						"value": "{{header.x-auth}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Md5",
+						"value": "{{header.md5}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{center-platform.url}}/admin/v1/licence/detail",
+					"host": [
+						"{{center-platform.url}}"
+					],
+					"path": [
+						"admin",
+						"v1",
+						"licence",
+						"detail"
+					]
+				},
+				"description": "获取应用基本信息"
+			},
+			"response": [
+				{
+					"name": "licence 获取授权信息",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Date",
+								"value": "{{header.date}}",
+								"type": "text"
+							},
+							{
+								"key": "X-Auth",
+								"value": "{{header.x-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Md5",
+								"value": "{{header.md5}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{center-platform.url}}/admin/v1/licence/detail",
+							"host": [
+								"{{center-platform.url}}"
+							],
+							"path": [
+								"admin",
+								"v1",
+								"licence",
+								"detail"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"object\": {\n        \"deadline\": 1625123434, // 最终期限，秒为单位的时间戳\n        \"platform_device_num\": 100, // 集群机器数\n        \"platform_webview\": true, // 是否有在线预览能力\n        \"platform_webedit\": true, // 是否有在线编辑能力\n        \"platform_file_process\": true,  // 是否有格式处理能力\n        \"platform_file_content_process\": true, // 是否有内容处理能力\n        \"platform_file_convert_process\": true,  // 是否有文件转换能力\n        \"platform_file_merge_process\": true, // 是否有文件合并能力\n        \"platform_file_split_process\": true, // 是否有文件拆分能力\n        \"platform_image_process\": true, // 是否有图片处理能力\n        \"platform_smart_file_process\": true,  // 是否有智能公文能力\n        \"platform_file_bookmark_replace\": true // 是否有书签替换能力\n    },\n    \"result\": 0\n}"
+				}
+			]
+		}
+	]
+}
